@@ -11,6 +11,11 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: Allure-Reception-Source
+
     steps:
       - uses: actions/checkout@v4
 
@@ -30,5 +35,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Allure-Reception-Windows-Installer
-          path: installer-output/AllureReceptionSetup.exe
+          path: Allure-Reception-Source/installer-output/AllureReceptionSetup.exe
           if-no-files-found: error
